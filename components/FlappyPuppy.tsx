@@ -1,7 +1,9 @@
 "use client"
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Stage, Container, Sprite, useTick } from "@pixi/react";
+import { useStore } from "~~/services/store/game";
 import useWindowDimensions from "~~/hooks/useWindowDimensions";
+import { Ground } from "./flappypuppy/Ground";
 
 const RotatingBunny = () => {
   const [rotation, setRotation] = useState(0);
@@ -19,13 +21,18 @@ const RotatingBunny = () => {
 };
 
 const FlappyPuppy = () => {
+  const {setScreen} = useStore()
   const size = useWindowDimensions();
+  
+  useEffect(() => {
+    setScreen(size);
+  }, [size.width]);
+
   return (
     <div>
       <Stage width={size.width} height={size.height}>
-        <Container position={[size.width/2, 250]}>
-          <RotatingBunny />
-        </Container>
+        <Ground/>
+        <RotatingBunny />
       </Stage>
     </div>
   );
