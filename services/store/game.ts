@@ -1,5 +1,11 @@
 import { create } from 'zustand';
+import { SoundLibrary, sound } from '@pixi/sound';
 import { THRUST } from '~~/constant/flappypuppy';
+
+sound.add('fly', '/images/game/flappypuppy/sound/flap.wav');
+sound.add('die', '/images/game/flappypuppy/sound/die.wav');
+sound.add('score', '/images/game/flappypuppy/sound/score.wav');
+sound.add('start', '/images/game/flappypuppy/sound/start.wav');
 
 type GameState = {
     screen: {width: number, height: number};
@@ -19,11 +25,27 @@ type GameState = {
     totalScore: number,
     pipe: { x: number, y: number , moved: boolean },
     setScreen: (newScreen: { width: number, height: number }) => void;
+    setPlayerAccount: (account: string, score: number) => void;
+    insScore: () => void;
+    updateGameState: (newState: any) => void;
+    setBirdCash: () => void;
+    updateBirdY: (newBirdY: number) => void;
+    updateBirdR: (newBirdR: number) => void;
+    changeSpeed: (newSpeed: number) => void;
+    updatePipePosition: (newX: number, newY: number, newState: boolean) => void;
+    updateGameStart: () => void;
+    sound: SoundLibrary;
+    setScale: (newScale: number) => void;
+    setBirdSize: (newBirdSize: any) => void;
+    setPipeSize: (newSize: any) => void;
+    setGap: (newGap: number) => void;
+    setInitGame: () => void;
 };
 
 export const useStore = create<GameState>(set => ({
   totalScore: 0,
   playerAccount: "0x42F10Bb701ed230222aC6F748320040A0e3ddfAD",
+  sound: sound,
   scale: 1,
   gap: 84,
   screen: { width: 0, height: 0 },

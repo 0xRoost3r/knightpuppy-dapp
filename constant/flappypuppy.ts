@@ -1,6 +1,6 @@
 export const MULTIPLE = 2;
 export const THRUST = 2.6;
-export const DEV_MODE = false;
+export const DEV_MODE = true;
 export let GRAVITY =  0.1;
 export const SIZE = {
   W: 276 * MULTIPLE,

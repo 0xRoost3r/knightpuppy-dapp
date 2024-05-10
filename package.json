@@ -40,7 +40,8 @@
     "@pixi/loaders": "^6.5.9",
     "@pixi/particle-container": "^7.2.4",
     "@pixi/react": "^7.1.0",
-    "pixi.js": "^7.2.4"
+    "pixi.js": "^7.2.4",
+    "@pixi/sound": "^5.2.3"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",

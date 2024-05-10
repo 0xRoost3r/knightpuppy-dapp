@@ -1,38 +1,27 @@
 "use client"
 import React, {  useEffect, useState } from "react";
-import { Stage, Container, Sprite, useTick } from "@pixi/react";
+import { Stage, Container, Sprite, useTick, AnimatedSprite, useApp } from "@pixi/react";
 import { useStore } from "~~/services/store/game";
 import useWindowDimensions from "~~/hooks/useWindowDimensions";
 import { Ground } from "./flappypuppy/Ground";
-
-const RotatingBunny = () => {
-  const [rotation, setRotation] = useState(0);
-
-  useTick((delta) => delta && setRotation(rotation + 0.05 * delta));
-
-  return (
-    <Sprite
-      image="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/IaUrttj.png"
-      anchor={0.5}
-      scale={4}
-      rotation={rotation}
-    />
-  );
-};
+import { Puppy } from "./flappypuppy/Puppy";
+import { Pipe } from "./flappypuppy/Pipe";
+import { SIZE, THRUST } from "~~/constant/flappypuppy";
+import { Loop } from "./flappypuppy/Loop";
 
 const FlappyPuppy = () => {
-  const {setScreen} = useStore()
-  const size = useWindowDimensions();
   
-  useEffect(() => {
-    setScreen(size);
-  }, [size.width]);
+  const { screen } = useStore();
+  
 
   return (
     <div>
-      <Stage width={size.width} height={size.height}>
+      <Stage width={screen.width} height={screen.height} options={{ autoDensity:true }}>
         <Ground/>
-        <RotatingBunny />
+        <Pipe />
+        <Puppy/>
+        <Loop/>
+        {/* <JetFighter/> */}
       </Stage>
     </div>
   );
