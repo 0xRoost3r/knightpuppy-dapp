@@ -58,7 +58,7 @@ export const useStore = create<GameState>(set => ({
   birdY: 140,
   birdR: 81.7,
   speed: 0,
-  pipe: { x: 476, y: 100 , moved: false },
+  pipe: { x: 476, y: 20 , moved: false },
   pipeSize: { width: 52 , height: 400 },
   setScale: (newScale: number) => set({ scale: newScale }),
   setPipeSize: (newSize: any) => set({ pipeSize: newSize }),

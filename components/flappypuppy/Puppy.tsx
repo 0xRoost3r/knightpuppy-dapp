@@ -9,12 +9,34 @@ export function Puppy() {
   const [imageIndex, setImageIndex] = useState(0);
 
   // Define your array of images
-  const pipeImages = [
+  const barkley = [
     "/images/game/flappypuppy/puppy/puppy1.png",
     "/images/game/flappypuppy/puppy/puppy2.png",
     "/images/game/flappypuppy/puppy/puppy3.png",
     "/images/game/flappypuppy/puppy/puppy4.png"
   ];
+
+  const cape = [
+    "/images/game/flappypuppy/puppy/cloth/cloth11.png", 
+    "/images/game/flappypuppy/puppy/cloth/cloth12.png", 
+    "/images/game/flappypuppy/puppy/cloth/cloth13.png", 
+    "/images/game/flappypuppy/puppy/cloth/cloth14.png"
+  ]
+
+  const star = [
+    "/images/game/flappypuppy/puppy/star/star1.png", 
+    "/images/game/flappypuppy/puppy/star/star2.png", 
+    "/images/game/flappypuppy/puppy/star/star3.png", 
+    "/images/game/flappypuppy/puppy/star/star4.png"
+  ]
+
+
+  const helmet = [
+    "/images/game/flappypuppy/puppy/helmet/helmet11.png", 
+    "/images/game/flappypuppy/puppy/helmet/helmet12.png", 
+    "/images/game/flappypuppy/puppy/helmet/helmet13.png", 
+    "/images/game/flappypuppy/puppy/helmet/helmet14.png"
+  ]
 
   // Use useTick to change the image every 10 milliseconds
   useTick((deltaTime) => {
@@ -35,38 +57,10 @@ export function Puppy() {
 
   return (
     <Container position={[birdX, birdY]}>
-      <Sprite anchor={0.5} rotation={birdR} image={pipeImages[imageIndex]} width={birdSize.width} height={birdSize.height}></Sprite>
-
-      {/* <AnimatedSprite
-        rotation={birdR}
-        width={birdSize.width}
-        height={birdSize.height}
-        animationSpeed={0.1}
-        isPlaying={true}
-        loop={true}
-        anchor={0.5}
-        images={["/images/game/flappypuppy/puppy/puppy1.png", "/images/game/flappypuppy/puppy/puppy2.png", "/images/game/flappypuppy/puppy/puppy3.png", "/images/game/flappypuppy/puppy/puppy4.png"]}
-        /> */}
-        {/* <AnimatedSprite
-        width={birdSize.width}
-        height={birdSize.height}
-        rotation={birdR}
-        anchor={0.5}
-        images={["/images/game/flappypuppy/puppy/cloth/cloth11.png", "/images/game/flappypuppy/puppy/cloth/cloth12.png", "/images/game/flappypuppy/puppy/cloth/cloth13.png", "/images/game/flappypuppy/puppy/cloth/cloth14.png"]}
-        initialFrame={0}
-        animationSpeed={0.1} 
-        isPlaying={true} 
-        />
-        <AnimatedSprite
-        width={birdSize.width}
-        height={birdSize.height}
-        rotation={birdR}
-        anchor={0.5}
-        images={["/images/game/flappypuppy/puppy/star/star1.png", "/images/game/flappypuppy/puppy/star/star2.png", "/images/game/flappypuppy/puppy/star/star3.png", "/images/game/flappypuppy/puppy/star/star4.png"]}
-        initialFrame={0}
-        animationSpeed={0.1} 
-        isPlaying={true}
-         /> */}
+      <Sprite anchor={0.5} rotation={birdR} image={barkley[imageIndex]} width={birdSize.width} height={birdSize.height}></Sprite>
+      <Sprite anchor={0.5} rotation={birdR} image={cape[imageIndex]} width={birdSize.width} height={birdSize.height}></Sprite>
+      <Sprite anchor={0.5} rotation={birdR} image={star[imageIndex]} width={birdSize.width} height={birdSize.height}></Sprite>
+      <Sprite anchor={0.5} rotation={birdR} image={helmet[imageIndex]} width={birdSize.width} height={birdSize.height}></Sprite>
     </Container>
     );
 }

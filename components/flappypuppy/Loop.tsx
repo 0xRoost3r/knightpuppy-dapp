@@ -123,10 +123,10 @@ export function Loop() {
   // Draw outline debug object on CANVAS
   const drawPipe = useCallback((g: { clear: () => void; lineStyle: (arg0: number, arg1: number, arg2: number) => void; drawRect: (arg0: number, arg1: number, arg2: number, arg3: number) => void; endFill: () => void; }) => {
     g.clear();
-    g.lineStyle(1.5, 16767232, 1);
+    g.lineStyle(1.5, 0xff0000, 1);
     g.drawRect(renderPipeX, renderY1, pipeSize.width, pipeSize.height);
     g.drawRect(renderPipeX, renderY2, pipeSize.width, pipeSize.height);
-    g.lineStyle(1.5, 65280, 1);
+    g.lineStyle(1.5, 0xff0000, 1);
     g.drawRect(BIRD_POSITION.xMin, BIRD_POSITION.yMin, screen.width, BIRD_POSITION.yMax - BIRD_POSITION.yMin);
     g.endFill();
   }, [pipe.x]);

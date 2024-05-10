@@ -1,6 +1,8 @@
 "use client"
 import React, {  useEffect, useState } from "react";
 import { Stage, Container, Sprite, useTick, AnimatedSprite, useApp } from "@pixi/react";
+import { HeartIcon, BoltIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconSolid, BoltIcon as BoltIconSolid } from "@heroicons/react/24/solid";
 import { useStore } from "~~/services/store/game";
 import useWindowDimensions from "~~/hooks/useWindowDimensions";
 import { Ground } from "./flappypuppy/Ground";
@@ -13,7 +15,7 @@ const FlappyPuppy = () => {
   
   const size = useWindowDimensions();
   
-  const {updateGameStart, playerAccount, sound, setScale,  setBirdSize, setPipeSize,  setGap,  speed, changeSpeed,  initGame, gameState, setScreen, screen, setInitGame, updateGameState } = useStore()
+  const {updateGameStart, playerAccount, score , sound, setScale,  setBirdSize, setPipeSize,  setGap,  speed, changeSpeed,  initGame, gameState, setScreen, screen, setInitGame, updateGameState } = useStore()
   
   function updateScreen() {
      // Cal new object scale and position
@@ -70,13 +72,33 @@ const FlappyPuppy = () => {
   
 
   return (
-    <div>
+    <div className="shadow-2xl">
+      <div className="ml-2 mt-2 absolute top-0 left-0 ">
+        <div className="flex badge">
+          Heath: <HeartIconSolid width={15} /> <HeartIconSolid width={15} /> <HeartIconSolid width={15} />
+        </div>
+        <div className="flex badge mt-1">
+          Mana: <BoltIconSolid width={15} /> <BoltIconSolid width={15} /> <BoltIcon width={15} />
+        </div>
+      </div>
+      <div className="mr-2 mt-2 absolute top-0 right-0">
+        <div dir="rtl">
+        <div className="flex badge">
+            Rank #1
+          </div>
+          <div className="flex badge mt-1">
+            Total Point: 12,214
+          </div>
+          <div className="flex badge mt-1">
+            Point: {score}
+          </div>
+        </div>
+      </div>
       <Stage width={screen.width} height={screen.height} options={{ autoDensity:true }}>
         <Ground/>
         <Pipe />
         <Puppy/>
         <Loop/>
-        {/* <JetFighter/> */}
       </Stage>
     </div>
   );
